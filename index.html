@@ -1,21 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        .box{
+            background-color: bisque;
+            height: 200px;
+            width: 200px;
+        }
+        [v-cloak]{
+            display:none;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <div id="app">
-        {{greeting}}!
+    <div id="app" v-cloak>
+        {{greeting}}
+        <input v-model="greeting" />
+
+        <hr />
+        <button>Show Box</button>
+
+        <div v-if=""isVisible class="box"></div>
+
     </div>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script>
         let app = Vue.createApp({
             data: function(){
                 return {
-                    greeting: 'Hello Vue JS'
+                    greeting: 'Hello Vue JS',
+                    isVisible: true
                 }
             }
         })
